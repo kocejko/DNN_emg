@@ -12,13 +12,24 @@ import re
 
 #from tkinter import *
 import tkinter
+import os
 from tkinter import filedialog
 from scipy import signal
 
-def open_convert():
-    root = tkinter.Tk()
-    root.withdraw()
-    file_name = filedialog.askopenfilename( filetypes = (("all","*.*"),("Text","*.txt")))
+def getAllData(dirName):
+    dirl = os.listdir(dirName)
+    g = []
+    for filename in dirl:
+        print(filename)
+        temp = open_convert(os.path.join(dirName,filename))
+#        temp = open_convert(dirName+filename)
+        g.append(temp)
+    return g    
+
+def open_convert(file_name):
+    #root = tkinter.Tk()
+    #root.withdraw()
+    #file_name = filedialog.askopenfilename( filetypes = (("all","*.*"),("Text","*.txt")))
     i = 0
     s_no = 1500 # spodziewana liczba probek, dlugosc sygnału
     results = []
