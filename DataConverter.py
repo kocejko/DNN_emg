@@ -67,6 +67,4 @@ def open_convert(file_name):
         
         #print(a2)
 
-    print("cos sie dziej")
-    
     return out
